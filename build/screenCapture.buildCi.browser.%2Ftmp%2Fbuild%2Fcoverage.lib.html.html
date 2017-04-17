@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-needle/needle/lib/multipart.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-needle/node_modules/needle/lib/multipart.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-needle">npmtest-needle (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-needle/needle/lib/multipart.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-needle/node_modules/needle/lib/multipart.js</span></h1>
     <h2>
         
         Statements: <span class="metric">10.71% <small>(6 / 56)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-needle/needle/lib/</a> &#187; multipart.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-needle/node_modules/needle/lib/</a> » multipart.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -411,105 +409,106 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var readFile = require('fs').readFile,
     basename = require('path').basename;
 &nbsp;
-exports.build = <span class="fstat-no" title="function not covered" >function(data, boundary, callback) {</span>
+exports.build = <span class="fstat-no" title="function not covered">function(data, boundary, callback) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (typeof data != 'object' || typeof data.pipe == 'function')</span>
-<span class="cstat-no" title="statement not covered" >    return callback(new Error('Multipart builder expects data as key/val object.'));</span>
+<span class="cstat-no" title="statement not covered">  if (typeof data != 'object' || typeof data.pipe == 'function')</span>
+<span class="cstat-no" title="statement not covered">    return callback(new Error('Multipart builder expects data as key/val object.'));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var body   = '',</span>
+<span class="cstat-no" title="statement not covered">  var body   = '',</span>
       object = flatten(data),
       count  = Object.keys(object).length;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (count === 0)</span>
-<span class="cstat-no" title="statement not covered" >    return callback(new Error('Empty multipart body. Invalid data.'))</span>
+<span class="cstat-no" title="statement not covered">  if (count === 0)</span>
+<span class="cstat-no" title="statement not covered">    return callback(new Error('Empty multipart body. Invalid data.'))</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function done(err, section) {</span>
-<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span></span>
-<span class="cstat-no" title="statement not covered" >    if (section) <span class="cstat-no" title="statement not covered" >body += section;</span></span>
-<span class="cstat-no" title="statement not covered" >    --count || callback(null, body + '--' + boundary + '--');</span>
+<span class="fstat-no" title="function not covered">  function done(err, section) {</span>
+<span class="cstat-no" title="statement not covered">    if (err) <span class="cstat-no" title="statement not covered">return callback(err);</span></span>
+<span class="cstat-no" title="statement not covered">    if (section) <span class="cstat-no" title="statement not covered">body += section;</span></span>
+<span class="cstat-no" title="statement not covered">    --count || callback(null, body + '--' + boundary + '--');</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (var key in object) {</span>
+<span class="cstat-no" title="statement not covered">  for (var key in object) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var value = object[key];</span>
-<span class="cstat-no" title="statement not covered" >    if (value === null || typeof value == 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >      done();</span>
+<span class="cstat-no" title="statement not covered">    var value = object[key];</span>
+<span class="cstat-no" title="statement not covered">    if (value === null || typeof value == 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">      done();</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      var part = (value.buffer || value.file || value.content_type) ? value : {value: value};</span>
-<span class="cstat-no" title="statement not covered" >      generate_part(key, part, boundary, done);</span>
+<span class="cstat-no" title="statement not covered">      var part = (value.buffer || value.file || value.content_type) ? value : {value: value};</span>
+<span class="cstat-no" title="statement not covered">      generate_part(key, part, boundary, done);</span>
     }
   }
 &nbsp;
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function generate_part(name, part, boundary, callback) {</span>
+<span class="fstat-no" title="function not covered">function generate_part(name, part, boundary, callback) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var return_part = '--' + boundary + '\r\n';</span>
-<span class="cstat-no" title="statement not covered" >  return_part += 'Content-Disposition: form-data; name="' + name + '"';</span>
+<span class="cstat-no" title="statement not covered">  var return_part = '--' + boundary + '\r\n';</span>
+<span class="cstat-no" title="statement not covered">  return_part += 'Content-Disposition: form-data; name="' + name + '"';</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function append(data, filename) {</span>
+<span class="fstat-no" title="function not covered">  function append(data, filename) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (data) {</span>
-<span class="cstat-no" title="statement not covered" >      var binary = part.content_type.indexOf('text') == -1;</span>
-<span class="cstat-no" title="statement not covered" >      return_part += '; filename="' + encodeURIComponent(filename) + '"\r\n';</span>
-<span class="cstat-no" title="statement not covered" >      if (binary) <span class="cstat-no" title="statement not covered" >return_part += 'Content-Transfer-Encoding: binary\r\n';</span></span>
-<span class="cstat-no" title="statement not covered" >      return_part += 'Content-Type: ' + part.content_type + '\r\n\r\n';</span>
-<span class="cstat-no" title="statement not covered" >      return_part += binary ? data.toString('binary') : data.toString('utf8');</span>
+<span class="cstat-no" title="statement not covered">    if (data) {</span>
+<span class="cstat-no" title="statement not covered">      var binary = part.content_type.indexOf('text') == -1;</span>
+<span class="cstat-no" title="statement not covered">      return_part += '; filename="' + encodeURIComponent(filename) + '"\r\n';</span>
+<span class="cstat-no" title="statement not covered">      if (binary) <span class="cstat-no" title="statement not covered">return_part += 'Content-Transfer-Encoding: binary\r\n';</span></span>
+<span class="cstat-no" title="statement not covered">      return_part += 'Content-Type: ' + part.content_type + '\r\n\r\n';</span>
+<span class="cstat-no" title="statement not covered">      return_part += binary ? data.toString('binary') : data.toString('utf8');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    callback(null, return_part + '\r\n');</span>
+<span class="cstat-no" title="statement not covered">    callback(null, return_part + '\r\n');</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if ((part.file || part.buffer) &amp;&amp; part.content_type) {</span>
+<span class="cstat-no" title="statement not covered">  if ((part.file || part.buffer) &amp;&amp; part.content_type) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var filename = part.filename ? part.filename : part.file ? basename(part.file) : name;</span>
-<span class="cstat-no" title="statement not covered" >    if (part.buffer) <span class="cstat-no" title="statement not covered" >return append(part.buffer, filename);</span></span>
+<span class="cstat-no" title="statement not covered">    var filename = part.filename ? part.filename : part.file ? basename(part.file) : name;</span>
+<span class="cstat-no" title="statement not covered">    if (part.buffer) <span class="cstat-no" title="statement not covered">return append(part.buffer, filename);</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    readFile(part.file, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
-<span class="cstat-no" title="statement not covered" >      if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span></span>
-<span class="cstat-no" title="statement not covered" >      append(data, filename);</span>
+<span class="cstat-no" title="statement not covered">    readFile(part.file, <span class="fstat-no" title="function not covered">function(err, data) {</span></span>
+<span class="cstat-no" title="statement not covered">      if (err) <span class="cstat-no" title="statement not covered">return callback(err);</span></span>
+<span class="cstat-no" title="statement not covered">      append(data, filename);</span>
     });
 &nbsp;
   } else {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (typeof part.value == 'object')</span>
-<span class="cstat-no" title="statement not covered" >      return callback(new Error('Object received for ' + name + ', expected string.'))</span>
+<span class="cstat-no" title="statement not covered">    if (typeof part.value == 'object')</span>
+<span class="cstat-no" title="statement not covered">      return callback(new Error('Object received for ' + name + ', expected string.'))</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (part.content_type) {</span>
-<span class="cstat-no" title="statement not covered" >      return_part += '\r\n';</span>
-<span class="cstat-no" title="statement not covered" >      return_part += 'Content-Type: ' + part.content_type;</span>
+<span class="cstat-no" title="statement not covered">    if (part.content_type) {</span>
+<span class="cstat-no" title="statement not covered">      return_part += '\r\n';</span>
+<span class="cstat-no" title="statement not covered">      return_part += 'Content-Type: ' + part.content_type;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return_part += '\r\n\r\n';</span>
-<span class="cstat-no" title="statement not covered" >    return_part += new Buffer(String(part.value), 'utf8').toString('binary');</span>
-<span class="cstat-no" title="statement not covered" >    append();</span>
+<span class="cstat-no" title="statement not covered">    return_part += '\r\n\r\n';</span>
+<span class="cstat-no" title="statement not covered">    return_part += new Buffer(String(part.value), 'utf8').toString('binary');</span>
+<span class="cstat-no" title="statement not covered">    append();</span>
 &nbsp;
   }
 &nbsp;
 }
 &nbsp;
 // flattens nested objects for multipart body
-<span class="fstat-no" title="function not covered" >function flatten(object, into, prefix) {</span>
-<span class="cstat-no" title="statement not covered" >  into = into || {};</span>
+<span class="fstat-no" title="function not covered">function flatten(object, into, prefix) {</span>
+<span class="cstat-no" title="statement not covered">  into = into || {};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for(var key in object) {</span>
-<span class="cstat-no" title="statement not covered" >    var prefix_key = prefix ? prefix + '[' + key + ']' : key;</span>
-<span class="cstat-no" title="statement not covered" >    var prop = object[key];</span>
+<span class="cstat-no" title="statement not covered">  for(var key in object) {</span>
+<span class="cstat-no" title="statement not covered">    var prefix_key = prefix ? prefix + '[' + key + ']' : key;</span>
+<span class="cstat-no" title="statement not covered">    var prop = object[key];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (prop &amp;&amp; typeof prop === 'object' &amp;&amp; !(prop.buffer || prop.file || prop.content_type))</span>
-<span class="cstat-no" title="statement not covered" >      flatten(prop, into, prefix_key)</span>
+<span class="cstat-no" title="statement not covered">    if (prop &amp;&amp; typeof prop === 'object' &amp;&amp; !(prop.buffer || prop.file || prop.content_type))</span>
+<span class="cstat-no" title="statement not covered">      flatten(prop, into, prefix_key)</span>
     else
-<span class="cstat-no" title="statement not covered" >      into[prefix_key] = prop;</span>
+<span class="cstat-no" title="statement not covered">      into[prefix_key] = prop;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return into;</span>
+<span class="cstat-no" title="statement not covered">  return into;</span>
 }
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 13:46:20 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 21:26:01 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
